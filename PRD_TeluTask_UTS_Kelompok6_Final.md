@@ -40,7 +40,7 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 | AUTH-02 | Login | Validasi username dan password dengan data User di Room. |
 | AUTH-03 | Session | `user_id` hasil login tersimpan di SharedPreferences; login tidak perlu diulang selama sesi ada. |
 | AUTH-04 | Logout | Hapus sesi dan kembali ke Login; tombol Back tidak membuka layar pengguna sebelumnya. |
-| DATA-01 | Room | Ada `User072`, `Task072`, `UserDao072`, `TaskDao072`, `TeluTaskDatabase072`. |
+| DATA-01 | Room | Ada `User068`, `Task068`, `UserDao068`, `TaskDao068`, `TeluTaskDatabase068`. |
 | DATA-02 | Data privat | Semua pembacaan, perubahan, dan penghapusan task dibatasi oleh `user_id` pengguna yang login. |
 | TASK-01 | Create | User dapat menambah tugas dengan nama, prioritas, deadline; `is_done` default `false`. |
 | TASK-02 | Read | RecyclerView menampilkan tugas milik user yang login saja. |
@@ -70,19 +70,19 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 
 | Anggota | 3 Digit NIM | Kepemilikan modul | Deliverables utama |
 |---|---|---|---|
-| **Faiz** | **072** | Database Room & kontrak data | `User072.kt`, `Task072.kt`, `UserDao072.kt`, `TaskDao072.kt`, `TeluTaskDatabase072.kt` |
+| **Rey** | **068** | Database Room & kontrak data | `User068.kt`, `Task068.kt`, `UserDao068.kt`, `TaskDao068.kt`, `TeluTaskDatabase068.kt` |
 | **Shafa** | **048** | Autentikasi & sesi | `RegisterActivity048.kt`, `LoginActivity048.kt`, `SessionManager048.kt`, `LauncherActivity048.kt`, XML terkait |
 | **Rico** | **075** | Create task | `AddTaskActivity075.kt`, `activity_add_task_075.xml`, validasi form tambah |
 | **Adan** | **077** | Detail & edit task | `TaskDetailActivity077.kt`, `EditTaskActivity077.kt`, XML terkait |
-| **Rey** | **068** | Dashboard, RecyclerView, checklist, sortir | `DashboardActivity068.kt`, `TaskAdapter068.kt`, XML dashboard dan item |
+| **Faiz** | **072** | Dashboard, RecyclerView, checklist, sortir | `DashboardActivity072.kt`, `TaskAdapter072.kt`, XML dashboard dan item |
 | **Marta** | **069** | Konfirmasi hapus, desain konsisten, integrasi & QA | `DeleteTaskDialog069.kt`, resource tema, daftar pengujian, validasi build dan integrasi |
 
-### 3.1 Detail tugas Faiz (072)
+### 3.1 Detail tugas Rey (068)
 
 1. Menyiapkan dependency Room beserta KSP atau kapt sesuai konfigurasi project (pilih **satu**, jangan keduanya).
-2. Membuat Entity `User072` dan `Task072` tepat sesuai skema Bab 5.
-3. Membuat `UserDao072`, `TaskDao072` dengan fungsi yang disepakati pada Bab 6.
-4. Membuat singleton `TeluTaskDatabase072` dan menyediakan contoh cara memanggil DAO.
+2. Membuat Entity `User068` dan `Task068` tepat sesuai skema Bab 5.
+3. Membuat `UserDao068`, `TaskDao068` dengan fungsi yang disepakati pada Bab 6.
+4. Membuat singleton `TeluTaskDatabase068` dan menyediakan contoh cara memanggil DAO.
 5. Menambahkan indeks/foreign key untuk isolasi dan integritas data.
 6. Menguji register lookup, tambah, baca, edit, hapus, dan checklist melalui DAO.
 7. Tidak mengubah fungsi/signature DAO tanpa memberi tahu semua anggota.
@@ -92,7 +92,7 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 1. Membuat form Register (username, password, konfirmasi password).
 2. Membuat form Login (username, password) dan pesan kegagalan.
 3. Validasi username unik (disarankan tidak peka huruf besar/kecil) dan password minimal 6 karakter.
-4. Memakai `UserDao072` untuk verifikasi pengguna yang tersimpan di Room.
+4. Memakai `UserDao068` untuk verifikasi pengguna yang tersimpan di Room.
 5. Menyimpan `user_id` hasil autentikasi di SharedPreferences; membuat kelas `SessionManager048`.
 6. Membuat `LauncherActivity048` sebagai LAUNCHER untuk memilih Login atau Dashboard berdasarkan sesi.
 7. Mengimplementasikan Logout dengan membersihkan sesi dan navigasi yang aman.
@@ -103,7 +103,7 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 2. Pilihan prioritas hanya `High`, `Medium`, `Low`.
 3. Menggunakan DatePicker; menyimpan deadline sebagai `Long` waktu epoch dalam milidetik dengan konvensi yang sama di seluruh modul.
 4. Menolak `nama_tugas` kosong dan deadline yang belum dipilih.
-5. Memasukkan task melalui `TaskDao072.insertTask072(...)` dengan `user_id` **dari sesi**, bukan input pengguna.
+5. Memasukkan task melalui `TaskDao068.insertTask068(...)` dengan `user_id` **dari sesi**, bukan input pengguna.
 6. Default task baru adalah `is_done=false`.
 7. Setelah berhasil menyimpan, kembali ke dashboard dan tampilkan data yang terbaru.
 
@@ -117,7 +117,7 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 6. Menambahkan tombol hapus yang memanggil komponen konfirmasi dari Marta.
 7. Jika task tidak ditemukan atau bukan milik user aktif, tampilkan pesan dan kembali ke dashboard.
 
-### 3.5 Detail tugas Rey (068)
+### 3.5 Detail tugas Faiz (072)
 
 1. Membuat Dashboard dengan RecyclerView berisi `nama_tugas`, prioritas, deadline, dan checklist.
 2. Menyediakan tombol `+` untuk membuka Add Task dan tombol Logout melalui SessionManager milik Shafa.
@@ -146,16 +146,16 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 
 | Pemilik | Contoh variabel | Contoh kelas/fungsi |
 |---|---|---|
-| Faiz (072) | `taskId072`, `userId072`, `database072` | `Task072`, `getTaskById072()` |
+| Rey (068) | `taskId068`, `userId068`, `database068` | `Task068`, `getTaskById068()` |
 | Shafa (048) | `username048`, `sessionManager048` | `LoginActivity048`, `saveUserId048()` |
 | Rico (075) | `namaTugas075`, `prioritas075` | `AddTaskActivity075`, `validateForm075()` |
 | Adan (077) | `taskId077`, `newDeadline077` | `EditTaskActivity077`, `saveChanges077()` |
-| Rey (068) | `taskList068`, `adapter068` | `DashboardActivity068`, `loadTasks068()` |
+| Faiz (072) | `taskList072`, `adapter072` | `DashboardActivity072`, `loadTasks072()` |
 | Marta (069) | `dialog069`, `taskId069` | `DeleteTaskDialog069`, `confirmDelete069()` |
 
-**Konvensi lintas modul:** suffix variabel mengikuti **orang yang mendeklarasikan**, bukan pemilik kelas yang dipakai. Contoh: Rey menulis `val taskDao068 = database068.taskDao072()` (variabel lokal `taskDao068`, method milik Faiz `taskDao072`). Nama metode bawaan Android yang wajib di-override (`onCreate`, `onResume`, `onBindViewHolder`, dan sebagainya) **jangan diganti** karena kontrak framework. Kata kunci Kotlin, nama properti library, anotasi Room, dan nama manifest/Gradle tidak boleh dipaksa memiliki suffix bila akan merusak kompatibilitas.
+**Konvensi lintas modul:** suffix variabel mengikuti **orang yang mendeklarasikan**, bukan pemilik kelas yang dipakai. Contoh: Faiz menulis `val taskDao072 = database072.taskDao068()` (variabel lokal `taskDao072`, method milik Rey `taskDao068`). Nama metode bawaan Android yang wajib di-override (`onCreate`, `onResume`, `onBindViewHolder`, dan sebagainya) **jangan diganti** karena kontrak framework. Kata kunci Kotlin, nama properti library, anotasi Room, dan nama manifest/Gradle tidak boleh dipaksa memiliki suffix bila akan merusak kompatibilitas.
 
-**Nama tabel menggunakan suffix pembuat database (Faiz):** `users072` dan `tasks072`. Jangan buat versi `users048`, `tasks075`, dan lain-lain karena semua modul harus memakai **satu database yang sama**.
+**Nama tabel menggunakan suffix pembuat database (Rey):** `users068` dan `tasks068`. Jangan buat versi `users048`, `tasks075`, dan lain-lain karena semua modul harus memakai **satu database yang sama**.
 
 **Nama kolom** tetap mengikuti soal UTS dan harus dipetakan via `@ColumnInfo`: `id`, `username`, `password`, `user_id`, `nama_tugas`, `prioritas`, `deadline`, `is_done`. Suffix dipakai pada **nama variabel Kotlin**, bukan mengubah nama kolom yang menjadi kontrak bersama.
 
@@ -167,8 +167,8 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 
 ### 5.1 Entity User
 
-**Class:** `User072`  
-**Tabel:** `users072`
+**Class:** `User068`  
+**Tabel:** `users068`
 
 | Kolom SQLite | Tipe | Constraint |
 |---|---|---|
@@ -178,49 +178,49 @@ TeluTask adalah aplikasi Android untuk mengelola tugas pribadi. Pengguna membuat
 
 ### 5.2 Entity Task
 
-**Class:** `Task072`  
-**Tabel:** `tasks072`
+**Class:** `Task068`  
+**Tabel:** `tasks068`
 
 | Kolom SQLite | Tipe | Constraint |
 |---|---|---|
 | `id` | INTEGER | Primary key, auto-generate |
-| `user_id` | INTEGER | Foreign key ke `users072.id`, wajib |
+| `user_id` | INTEGER | Foreign key ke `users068.id`, wajib |
 | `nama_tugas` | TEXT | Wajib, tidak boleh kosong |
 | `prioritas` | TEXT | Salah satu `High`, `Medium`, `Low` |
 | `deadline` | INTEGER | Tanggal deadline berupa epoch milliseconds (`Long`) |
 | `is_done` | INTEGER / BOOLEAN Room | Default `false` |
 
-**Relasi:** `User072 (1) → (N) Task072`, FK `tasks072.user_id → users072.id`. Gunakan indeks pada `user_id`. Untuk menghindari data yatim, relasi dapat memakai `ON DELETE CASCADE`.
+**Relasi:** `User068 (1) → (N) Task068`, FK `tasks068.user_id → users068.id`. Gunakan indeks pada `user_id`. Untuk menghindari data yatim, relasi dapat memakai `ON DELETE CASCADE`.
 
 ### 5.3 Contoh kerangka Entity untuk acuan bersama
 
 ```kotlin
-@Entity(tableName = "users072", indices = [Index(value = ["username"], unique = true)])
-data class User072(
+@Entity(tableName = "users068", indices = [Index(value = ["username"], unique = true)])
+data class User068(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id") val id072: Int = 0,
-    @ColumnInfo(name = "username") val username072: String,
-    @ColumnInfo(name = "password") val password072: String
+    @ColumnInfo(name = "id") val id068: Int = 0,
+    @ColumnInfo(name = "username") val username068: String,
+    @ColumnInfo(name = "password") val password068: String
 )
 
 @Entity(
-    tableName = "tasks072",
+    tableName = "tasks068",
     foreignKeys = [ForeignKey(
-        entity = User072::class,
+        entity = User068::class,
         parentColumns = ["id"],
         childColumns = ["user_id"],
         onDelete = ForeignKey.CASCADE
     )],
     indices = [Index(value = ["user_id"])]
 )
-data class Task072(
+data class Task068(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id") val id072: Int = 0,
-    @ColumnInfo(name = "user_id") val userId072: Int,
-    @ColumnInfo(name = "nama_tugas") val namaTugas072: String,
-    @ColumnInfo(name = "prioritas") val prioritas072: String,
-    @ColumnInfo(name = "deadline") val deadline072: Long,
-    @ColumnInfo(name = "is_done") val isDone072: Boolean = false
+    @ColumnInfo(name = "id") val id068: Int = 0,
+    @ColumnInfo(name = "user_id") val userId068: Int,
+    @ColumnInfo(name = "nama_tugas") val namaTugas068: String,
+    @ColumnInfo(name = "prioritas") val prioritas068: String,
+    @ColumnInfo(name = "deadline") val deadline068: Long,
+    @ColumnInfo(name = "is_done") val isDone068: Boolean = false
 )
 ```
 
@@ -239,67 +239,67 @@ Kerangka di atas memerlukan import Room yang sesuai. Pengembang database harus m
 
 ## 6. Kontrak DAO Wajib (Disepakati Sebelum Coding Paralel)
 
-> **Penting:** Semua anggota mengikuti nama fungsi DAO di bawah. Suffix `072` ada karena DAO milik Faiz. Pemanggil boleh menggunakan nama variabel lokal sesuai suffix miliknya.
+> **Penting:** Semua anggota mengikuti nama fungsi DAO di bawah. Suffix `068` ada karena DAO milik Rey. Pemanggil boleh menggunakan nama variabel lokal sesuai suffix miliknya.
 
-### 6.1 `UserDao072`
+### 6.1 `UserDao068`
 
 ```kotlin
 @Dao
-interface UserDao072 {
+interface UserDao068 {
     @Insert
-    suspend fun insertUser072(user072: User072): Long
+    suspend fun insertUser068(user068: User068): Long
 
-    @Query("SELECT * FROM users072 WHERE username = :username072 COLLATE NOCASE LIMIT 1")
-    suspend fun getUserByUsername072(username072: String): User072?
+    @Query("SELECT * FROM users068 WHERE username = :username068 COLLATE NOCASE LIMIT 1")
+    suspend fun getUserByUsername068(username068: String): User068?
 
-    @Query("SELECT * FROM users072 WHERE id = :userId072 LIMIT 1")
-    suspend fun getUserById072(userId072: Int): User072?
+    @Query("SELECT * FROM users068 WHERE id = :userId068 LIMIT 1")
+    suspend fun getUserById068(userId068: Int): User068?
 }
 ```
 
-### 6.2 `TaskDao072`
+### 6.2 `TaskDao068`
 
 ```kotlin
 @Dao
-interface TaskDao072 {
+interface TaskDao068 {
     @Insert
-    suspend fun insertTask072(task072: Task072): Long
+    suspend fun insertTask068(task068: Task068): Long
 
-    @Query("SELECT * FROM tasks072 WHERE user_id = :userId072 ORDER BY id DESC")
-    suspend fun getTasksByUser072(userId072: Int): List<Task072>
+    @Query("SELECT * FROM tasks068 WHERE user_id = :userId068 ORDER BY id DESC")
+    suspend fun getTasksByUser068(userId068: Int): List<Task068>
 
-    @Query("SELECT * FROM tasks072 WHERE id = :taskId072 AND user_id = :userId072 LIMIT 1")
-    suspend fun getTaskById072(taskId072: Int, userId072: Int): Task072?
+    @Query("SELECT * FROM tasks068 WHERE id = :taskId068 AND user_id = :userId068 LIMIT 1")
+    suspend fun getTaskById068(taskId068: Int, userId068: Int): Task068?
 
-    @Query("""UPDATE tasks072 SET nama_tugas = :namaTugas072,
-        prioritas = :prioritas072, deadline = :deadline072
-        WHERE id = :taskId072 AND user_id = :userId072""")
-    suspend fun updateTask072(
-        taskId072: Int, userId072: Int, namaTugas072: String,
-        prioritas072: String, deadline072: Long
+    @Query("""UPDATE tasks068 SET nama_tugas = :namaTugas068,
+        prioritas = :prioritas068, deadline = :deadline068
+        WHERE id = :taskId068 AND user_id = :userId068""")
+    suspend fun updateTask068(
+        taskId068: Int, userId068: Int, namaTugas068: String,
+        prioritas068: String, deadline068: Long
     ): Int
 
-    @Query("UPDATE tasks072 SET is_done = :isDone072 WHERE id = :taskId072 AND user_id = :userId072")
-    suspend fun updateDone072(taskId072: Int, userId072: Int, isDone072: Boolean): Int
+    @Query("UPDATE tasks068 SET is_done = :isDone068 WHERE id = :taskId068 AND user_id = :userId068")
+    suspend fun updateDone068(taskId068: Int, userId068: Int, isDone068: Boolean): Int
 
-    @Query("DELETE FROM tasks072 WHERE id = :taskId072 AND user_id = :userId072")
-    suspend fun deleteTask072(taskId072: Int, userId072: Int): Int
+    @Query("DELETE FROM tasks068 WHERE id = :taskId068 AND user_id = :userId068")
+    suspend fun deleteTask068(taskId068: Int, userId068: Int): Int
 
-    @Query("""SELECT * FROM tasks072 WHERE user_id = :userId072
+    @Query("""SELECT * FROM tasks068 WHERE user_id = :userId068
         ORDER BY CASE prioritas WHEN 'High' THEN 1
             WHEN 'Medium' THEN 2 WHEN 'Low' THEN 3 ELSE 4 END ASC, deadline ASC""")
-    suspend fun getTasksSortedByPriority072(userId072: Int): List<Task072>
+    suspend fun getTasksSortedByPriority068(userId068: Int): List<Task068>
 }
 ```
 
-**Contract `TeluTaskDatabase072`:**
+**Contract `TeluTaskDatabase068`:**
 
 ```kotlin
-@Database(entities = [User072::class, Task072::class], version = 1, exportSchema = false)
-abstract class TeluTaskDatabase072 : RoomDatabase() {
-    abstract fun userDao072(): UserDao072
-    abstract fun taskDao072(): TaskDao072
-    // Sediakan companion object singleton getInstance072(context072: Context).
+@Database(entities = [User068::class, Task068::class], version = 1, exportSchema = false)
+abstract class TeluTaskDatabase068 : RoomDatabase() {
+    abstract fun userDao068(): UserDao068
+    abstract fun taskDao068(): TaskDao068
+    // Sediakan companion object singleton getInstance068(context068: Context).
 }
 ```
 
@@ -316,7 +316,7 @@ abstract class TeluTaskDatabase072 : RoomDatabase() {
     |                         |
     |                         | Login sukses + save user_id
     |                         v
-    |                    [DashboardActivity068]
+    |                    [DashboardActivity072]
     |                         |-- RecyclerView daftar tugas user aktif
     |                         |-- Checkbox selesai/belum selesai
     |                         |-- Sortir prioritas
@@ -326,7 +326,7 @@ abstract class TeluTaskDatabase072 : RoomDatabase() {
     |                         |                     '-- Hapus -> [DeleteTaskDialog069]
     |                         '-- Logout -> hapus sesi -> Login
     |
-    '-- Ada sesi -> [DashboardActivity068]
+    '-- Ada sesi -> [DashboardActivity072]
 ```
 
 ### 7.1 Layar
@@ -361,13 +361,13 @@ abstract class TeluTaskDatabase072 : RoomDatabase() {
 app/src/main/java/com/example/telutask/
   data/
     entity/
-      User072.kt                        # Faiz
-      Task072.kt                        # Faiz
+      User068.kt                        # Rey
+      Task068.kt                        # Rey
     dao/
-      UserDao072.kt                     # Faiz
-      TaskDao072.kt                     # Faiz
+      UserDao068.kt                     # Rey
+      TaskDao068.kt                     # Rey
     database/
-      TeluTaskDatabase072.kt            # Faiz
+      TeluTaskDatabase068.kt            # Rey
   auth/
     LauncherActivity048.kt              # Shafa
     LoginActivity048.kt                 # Shafa
@@ -379,15 +379,15 @@ app/src/main/java/com/example/telutask/
     EditTaskActivity077.kt              # Adan
     DeleteTaskDialog069.kt              # Marta
   dashboard/
-    DashboardActivity068.kt             # Rey
-    TaskAdapter068.kt                   # Rey
+    DashboardActivity072.kt             # Faiz
+    TaskAdapter072.kt                   # Faiz
 
 app/src/main/res/layout/
   activity_launcher_048.xml             # Shafa (opsional)
   activity_login_048.xml                # Shafa
   activity_register_048.xml             # Shafa
-  activity_dashboard_068.xml            # Rey
-  item_task_068.xml                     # Rey
+  activity_dashboard_072.xml            # Faiz
+  item_task_072.xml                     # Faiz
   activity_add_task_075.xml             # Rico
   activity_task_detail_077.xml          # Adan
   activity_edit_task_077.xml            # Adan
@@ -398,7 +398,7 @@ app/src/main/res/values/
   strings.xml                           # Marta: konsolidasi string
 
 app/src/main/AndroidManifest.xml         # Integrator: Marta & Shafa
-app/build.gradle.kts                     # Integrator: Marta & Faiz
+app/build.gradle.kts                     # Integrator: Marta & Rey
 ```
 
 **Aturan resource:** nama file XML layout diberi suffix pemilik untuk menghindari bentrokan; nama standar resource yang diwajibkan Android/Gradle tetap dipertahankan (`AndroidManifest.xml`, `themes.xml`, dll.). Semua Activity didaftarkan di manifest dan hanya Launcher mempunyai intent `MAIN` + `LAUNCHER`.
@@ -408,10 +408,10 @@ app/build.gradle.kts                     # Integrator: Marta & Faiz
 ## 9. Integrasi & Git Workflow
 
 1. Marta membuat repository Android Studio dasar, package `com.example.telutask`, min SDK dan versi Gradle kompatibel dengan lingkungan kelompok.
-2. Faiz membuat dan push model/DAO/Room Database **terlebih dahulu** ke branch `feature/072-room`.
+2. Rey membuat dan push model/DAO/Room Database **terlebih dahulu** ke branch `feature/068-room`.
 3. Tim menyepakati nama class/fungsi di Bab 6. Sementara menunggu database, anggota lain membuat UI dengan kontrak yang sudah ditetapkan; jangan membuat class database duplikat.
-4. Shafa mengembangkan `feature/048-auth`, Rico `feature/075-create`, Adan `feature/077-edit`, Rey `feature/068-dashboard`, Marta `feature/069-integration`.
-5. Setelah Faiz merge, hubungkan UI dengan DAO dan SessionManager.
+4. Shafa mengembangkan `feature/048-auth`, Rico `feature/075-create`, Adan `feature/077-edit`, Faiz `feature/072-dashboard`, Marta `feature/069-integration`.
+5. Setelah Rey merge, hubungkan UI dengan DAO dan SessionManager.
 6. Setiap anggota mengerjakan file miliknya. Jangan mengubah gradle, manifest, file resource global, atau kontrak DAO tanpa koordinasi.
 7. Semua merge ke `main` melalui pull request dan pemeriksaan build. Jika waktu sangat terbatas, integrasikan dalam urutan: Room → Auth → Dashboard → Create → Edit/Delete → Checklist/Sort → QA.
 8. Semua anggota melakukan smoke test setelah merge.
@@ -420,16 +420,16 @@ app/build.gradle.kts                     # Integrator: Marta & Faiz
 
 | Pembuat | Dipakai oleh | Objek/fungsi yang dipakai |
 |---|---|---|
-| Faiz | Semua | `TeluTaskDatabase072`, `UserDao072`, `TaskDao072`, entities |
-| Shafa | Rico, Adan, Rey, Marta | `SessionManager048.getUserId048()` |
-| Rico | Rey | `AddTaskActivity075` |
-| Adan | Rey & Marta | `TaskDetailActivity077`, `EditTaskActivity077` |
-| Rey | Semua | `DashboardActivity068` |
+| Rey | Semua | `TeluTaskDatabase068`, `UserDao068`, `TaskDao068`, entities |
+| Shafa | Rico, Adan, Faiz, Marta | `SessionManager048.getUserId048()` |
+| Rico | Faiz | `AddTaskActivity075` |
+| Adan | Faiz & Marta | `TaskDetailActivity077`, `EditTaskActivity077` |
+| Faiz | Semua | `DashboardActivity072` |
 | Marta | Adan | `DeleteTaskDialog069` |
 
 Shafa harus mengekspor metode **`getUserId048(): Int?`** dan **`clearSession048()`**, serta `saveUserId048(userId048: Int)`. Pengembalian `null` berarti sesi tidak ada. Metode bisa berupa anggota kelas SessionManager, bukan top-level function.
 
-**Passing parameter antarlayar:** Gunakan `Intent` extras key yang konsisten, misalnya `EXTRA_TASK_ID077 = "extra_task_id"` dideklarasikan oleh Adan. Rey mengirim `taskId068` dengan key milik Adan (tidak membuat key versi lain). `user_id` **tidak** dipercaya dari Intent; selalu baca dari SessionManager.
+**Passing parameter antarlayar:** Gunakan `Intent` extras key yang konsisten, misalnya `EXTRA_TASK_ID077 = "extra_task_id"` dideklarasikan oleh Adan. Faiz mengirim `taskId072` dengan key milik Adan (tidak membuat key versi lain). `user_id` **tidak** dipercaya dari Intent; selalu baca dari SessionManager.
 
 ---
 
@@ -444,17 +444,17 @@ Shafa harus mengekspor metode **`getUserId048(): Int?`** dan **`clearSession048(
 | T05 | Login salah | Tetap di Login, ada pesan error | Shafa |
 | T06 | Tutup/buka aplikasi setelah login | Langsung Dashboard selama sesi aktif | Shafa |
 | T07 | Logout | Sesi terhapus, kembali Login | Shafa |
-| T08 | Tambah task valid | Data tampil dalam RecyclerView | Rico, Rey |
+| T08 | Tambah task valid | Data tampil dalam RecyclerView | Rico, Faiz |
 | T09 | Tambah task tanpa nama/deadline | Ditolak | Rico |
 | T10 | Edit nama/prioritas/deadline | Perubahan tampil di Dashboard | Adan |
 | T11 | Hapus task lalu konfirmasi | Task hilang dari Room dan daftar | Marta, Adan |
 | T12 | Batalkan dialog hapus | Task tetap ada | Marta |
-| T13 | Centang checklist | `is_done=true`, UI berubah, tetap tersimpan setelah restart | Rey |
-| T14 | Hapus centang | `is_done=false` dan disimpan | Rey |
-| T15 | Sort prioritas | High → Medium → Low | Rey |
+| T13 | Centang checklist | `is_done=true`, UI berubah, tetap tersimpan setelah restart | Faiz |
+| T14 | Hapus centang | `is_done=false` dan disimpan | Faiz |
+| T15 | Sort prioritas | High → Medium → Low | Faiz |
 | T16 | Login akun A, buat tugas, logout, login akun B | Akun B **tidak** melihat tugas akun A | Marta |
 | T17 | User B mencoba membuka ID task user A | Detail tidak terbuka, update/delete berdampak 0 baris | Marta, Adan |
-| T18 | Tidak ada tugas | Empty state muncul tanpa crash | Rey |
+| T18 | Tidak ada tugas | Empty state muncul tanpa crash | Faiz |
 | T19 | Putar layar atau kembali dari form | Tidak crash, daftar tetap benar | Marta |
 | T20 | Jalankan tanpa internet | Semua fungsi utama tetap berjalan | Marta |
 
@@ -474,31 +474,31 @@ Target minimal pada akhir setiap fase adalah **APK dapat dijalankan**, bukan han
 
 ## 12. Prompt Induk (Dibaca Seluruh Anggota)
 
-> Saya mengembangkan TeluTask untuk UTS Pengembangan Aplikasi Bergerak, Kelompok 6 (Task Management). Baca seluruh PRD ini terlebih dahulu sebagai satu-satunya spesifikasi. Gunakan Android Studio, Kotlin, XML Layout, Room Persistence Library (SQLite), RecyclerView, SharedPreferences, dan tanpa API internet. Entity wajib User(id, username, password) serta Task(id, user_id, nama_tugas, prioritas, deadline, is_done). Nama tabel bersama `users072` dan `tasks072`; metode DAO wajib mengikuti Bab 6. Semua variabel, parameter, properti Kotlin, dan ID view custom yang saya deklarasikan harus menggunakan suffix tiga digit NIM saya. Jangan mengubah nama metode override Android atau nama kolom SQLite yang disepakati. Kerjakan hanya modul kepemilikan saya agar tidak bentrok. Untuk setiap file, tuliskan path, source code lengkap, dependency yang diperlukan, dan bagaimana mengintegrasikan dengan modul anggota lain. Jangan membuat database/helper baru jika milik Faiz sudah tersedia. Utamakan fitur sesuai rubrik dan pastikan semua query task dibatasi `user_id` sesi login.
+> Saya mengembangkan TeluTask untuk UTS Pengembangan Aplikasi Bergerak, Kelompok 6 (Task Management). Baca seluruh PRD ini terlebih dahulu sebagai satu-satunya spesifikasi. Gunakan Android Studio, Kotlin, XML Layout, Room Persistence Library (SQLite), RecyclerView, SharedPreferences, dan tanpa API internet. Entity wajib User(id, username, password) serta Task(id, user_id, nama_tugas, prioritas, deadline, is_done). Nama tabel bersama `users068` dan `tasks068`; metode DAO wajib mengikuti Bab 6. Semua variabel, parameter, properti Kotlin, dan ID view custom yang saya deklarasikan harus menggunakan suffix tiga digit NIM saya. Jangan mengubah nama metode override Android atau nama kolom SQLite yang disepakati. Kerjakan hanya modul kepemilikan saya agar tidak bentrok. Untuk setiap file, tuliskan path, source code lengkap, dependency yang diperlukan, dan bagaimana mengintegrasikan dengan modul anggota lain. Jangan membuat database/helper baru jika milik Rey sudah tersedia. Utamakan fitur sesuai rubrik dan pastikan semua query task dibatasi `user_id` sesi login.
 
-### 12.1 Prompt Faiz (072)
+### 12.1 Prompt Rey (068)
 
-> Saya Faiz, NIM 072. Kerjakan **hanya** modul Room database menurut Bab 3, 5, 6, dan 8. Buat Entity `User072`, `Task072`, DAO, singleton `TeluTaskDatabase072`, serta contoh pemakaian DAO. Semua variabel/parameter/properti buatan saya harus berakhiran `072`; tabel `users072` dan `tasks072`. Pertahankan kolom SQLite yang disepakati. Implementasikan query task dengan pembatasan `user_id` untuk read, edit, checklist, delete, dan sorting. Berikan kode Kotlin lengkap beserta import, dependency Room + KSP/kapt, dan contoh test.
+> Saya Rey, NIM 068. Kerjakan **hanya** modul Room database menurut Bab 3, 5, 6, dan 8. Buat Entity `User068`, `Task068`, DAO, singleton `TeluTaskDatabase068`, serta contoh pemakaian DAO. Semua variabel/parameter/properti buatan saya harus berakhiran `068`; tabel `users068` dan `tasks068`. Pertahankan kolom SQLite yang disepakati. Implementasikan query task dengan pembatasan `user_id` untuk read, edit, checklist, delete, dan sorting. Berikan kode Kotlin lengkap beserta import, dependency Room + KSP/kapt, dan contoh test.
 
 ### 12.2 Prompt Shafa (048)
 
-> Saya Shafa, NIM 048. Kerjakan **hanya** autentikasi, register, login, session SharedPreferences, logout, dan Launcher menurut PRD. Gunakan `UserDao072` milik Faiz. Seluruh variabel/parameter/properti yang saya deklarasikan wajib suffix `048`. Buat Activity, XML Layout, validasi username unik dan password min 6 karakter, dan `SessionManager048` dengan `saveUserId048`, `getUserId048`, `clearSession048`. Setelah login arahkan ke `DashboardActivity068`; jika sesi tidak ada arahkan ke Login. Jangan membuat database baru.
+> Saya Shafa, NIM 048. Kerjakan **hanya** autentikasi, register, login, session SharedPreferences, logout, dan Launcher menurut PRD. Gunakan `UserDao068` milik Rey. Seluruh variabel/parameter/properti yang saya deklarasikan wajib suffix `048`. Buat Activity, XML Layout, validasi username unik dan password min 6 karakter, dan `SessionManager048` dengan `saveUserId048`, `getUserId048`, `clearSession048`. Setelah login arahkan ke `DashboardActivity072`; jika sesi tidak ada arahkan ke Login. Jangan membuat database baru.
 
 ### 12.3 Prompt Rico (075)
 
-> Saya Rico, NIM 075. Kerjakan **hanya** fitur Tambah Tugas menurut PRD. Buat `AddTaskActivity075.kt` dan layout XML lengkap. Semua variabel/parameter/properti/View ID saya suffix `075`. Field wajib `nama_tugas`, `prioritas` (High, Medium, Low), `deadline` menggunakan DatePicker, dan `is_done` default false. Ambil `user_id` dari `SessionManager048`, simpan melalui `TaskDao072.insertTask072`. Pastikan validasi dan refresh Dashboard setelah kembali. Jangan menambahkan field Task baru atau membuat SQLiteOpenHelper.
+> Saya Rico, NIM 075. Kerjakan **hanya** fitur Tambah Tugas menurut PRD. Buat `AddTaskActivity075.kt` dan layout XML lengkap. Semua variabel/parameter/properti/View ID saya suffix `075`. Field wajib `nama_tugas`, `prioritas` (High, Medium, Low), `deadline` menggunakan DatePicker, dan `is_done` default false. Ambil `user_id` dari `SessionManager048`, simpan melalui `TaskDao068.insertTask068`. Pastikan validasi dan refresh Dashboard setelah kembali. Jangan menambahkan field Task baru atau membuat SQLiteOpenHelper.
 
 ### 12.4 Prompt Adan (077)
 
-> Saya Adan, NIM 077. Kerjakan **hanya** halaman Detail dan Edit Tugas menurut PRD. Buat `TaskDetailActivity077`, `EditTaskActivity077`, dan layout XML. Semua variabel/parameter/properti/View ID saya suffix `077`. Baca task dengan `TaskDao072.getTaskById072(taskId, userId)` menggunakan sesi. Edit nama tugas, prioritas, deadline melalui `updateTask072`. Tombol hapus memanggil `DeleteTaskDialog069` milik Marta; jangan menulis fitur hapus duplikat. Sertakan Intent extra task ID yang disepakati.
+> Saya Adan, NIM 077. Kerjakan **hanya** halaman Detail dan Edit Tugas menurut PRD. Buat `TaskDetailActivity077`, `EditTaskActivity077`, dan layout XML. Semua variabel/parameter/properti/View ID saya suffix `077`. Baca task dengan `TaskDao068.getTaskById068(taskId, userId)` menggunakan sesi. Edit nama tugas, prioritas, deadline melalui `updateTask068`. Tombol hapus memanggil `DeleteTaskDialog069` milik Marta; jangan menulis fitur hapus duplikat. Sertakan Intent extra task ID yang disepakati.
 
-### 12.5 Prompt Rey (068)
+### 12.5 Prompt Faiz (072)
 
-> Saya Rey, NIM 068. Kerjakan **hanya** Dashboard, RecyclerView, adapter, checkbox `is_done`, dan sorting prioritas menurut PRD. Buat `DashboardActivity068`, `TaskAdapter068`, dan XML layout. Semua variabel/parameter/properti/View ID saya suffix `068`. Ambil `user_id` melalui `SessionManager048`, lalu panggil DAO milik Faiz; tampilkan **hanya** task user aktif. Checkbox memanggil `updateDone072` dan sortir memanggil `getTasksSortedByPriority072`. Navigasi ke `AddTaskActivity075` dan `TaskDetailActivity077`; Logout melalui SessionManager milik Shafa. Hindari pembacaan seluruh task tanpa filter user.
+> Saya Faiz, NIM 072. Kerjakan **hanya** Dashboard, RecyclerView, adapter, checkbox `is_done`, dan sorting prioritas menurut PRD. Buat `DashboardActivity072`, `TaskAdapter072`, dan XML layout. Semua variabel/parameter/properti/View ID saya suffix `072`. Ambil `user_id` melalui `SessionManager048`, lalu panggil DAO milik Rey; tampilkan **hanya** task user aktif. Checkbox memanggil `updateDone068` dan sortir memanggil `getTasksSortedByPriority068`. Navigasi ke `AddTaskActivity075` dan `TaskDetailActivity077`; Logout melalui SessionManager milik Shafa. Hindari pembacaan seluruh task tanpa filter user.
 
 ### 12.6 Prompt Marta (069)
 
-> Saya Marta, NIM 069. Kerjakan **hanya** dialog konfirmasi hapus, tema visual konsisten, dan integrasi/QA sesuai PRD. Buat `DeleteTaskDialog069.kt` yang dapat dipanggil dari `TaskDetailActivity077`, memanggil `TaskDao072.deleteTask072(taskId, userId)` setelah konfirmasi, serta menangani hasil 0 baris. Semua variabel/parameter/properti yang saya deklarasikan suffix `069`. Buat checklist pengujian seluruh requirement, langkah merge branch, pemeriksaan manifest/Gradle, serta panduan build APK. Jangan mengubah kontrak DAO atau membuat Entity duplikat.
+> Saya Marta, NIM 069. Kerjakan **hanya** dialog konfirmasi hapus, tema visual konsisten, dan integrasi/QA sesuai PRD. Buat `DeleteTaskDialog069.kt` yang dapat dipanggil dari `TaskDetailActivity077`, memanggil `TaskDao068.deleteTask068(taskId, userId)` setelah konfirmasi, serta menangani hasil 0 baris. Semua variabel/parameter/properti yang saya deklarasikan suffix `069`. Buat checklist pengujian seluruh requirement, langkah merge branch, pemeriksaan manifest/Gradle, serta panduan build APK. Jangan mengubah kontrak DAO atau membuat Entity duplikat.
 
 ---
 
@@ -508,7 +508,7 @@ Project dinyatakan siap dikumpulkan jika:
 
 - [ ] Aplikasi build dan dapat dijalankan di emulator/perangkat Android.
 - [ ] Register, Login, Session, dan Logout berjalan dengan Room + SharedPreferences.
-- [ ] Ada tabel `users072` dan `tasks072` dalam satu database Room.
+- [ ] Ada tabel `users068` dan `tasks068` dalam satu database Room.
 - [ ] Setiap query Task menjamin data user tidak tercampur.
 - [ ] Form tambah dan edit memvalidasi input.
 - [ ] Create, Read, Update, Delete Task berhasil dan tetap tersimpan setelah restart.
