@@ -27,6 +27,8 @@
             android:name=".task.AddTaskActivity075"
             android:exported="false"
             android:label="Tambah Task" />
+        <activity android:name=".task.TaskDetailActivity077" android:exported="false" />
+        <activity android:name=".task.EditTaskActivity077" android:exported="false" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>
