@@ -23,6 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".task.AddTaskActivity075"
+            android:exported="false"
+            android:label="Tambah Task" />
     </application>
 
 </manifest>
