@@ -12,17 +12,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Telutask">
         <activity
-            android:name=".MainActivity"
+            android:name=".auth.LauncherActivity048"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Telutask"
-            android:windowSoftInputMode="adjustResize">
+            android:theme="@style/Theme.Telutask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".auth.LoginActivity048"
+            android:exported="false"
+            android:label="Login"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".auth.RegisterActivity048"
+            android:exported="false"
+            android:label="Register"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Telutask" />
         <activity
             android:name=".dashboard.DashboardActivity072"
             android:exported="false"
