@@ -1,91 +1,51 @@
 package com.example.telutask
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.PreviewScreenSizes
-import com.example.telutask.ui.theme.TelutaskTheme
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.telutask.auth.SessionManager048
+import com.example.telutask.dashboard.DashboardActivity072
+import com.example.telutask.data.database.TeluTaskDatabase068
+import com.example.telutask.data.entity.User068
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
-class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            TelutaskTheme {
-                TelutaskApp()
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState072: Bundle?) {
+        super.onCreate(savedInstanceState072)
+
+        val sessionManager072 = SessionManager048(this)
+        val existingUserId072 = sessionManager072.getUserId048()
+
+        if (existingUserId072 == null) {
+            val database072 = TeluTaskDatabase068.getInstance068(this)
+            lifecycleScope.launch(Dispatchers.IO) {
+                val userDao072 = database072.userDao068()
+                val existingUser072 = userDao072.getUserByUsername068("FaizUser072")
+                val userId072 = if (existingUser072 != null) {
+                    existingUser072.id068
+                } else {
+                    userDao072.insertUser068(
+                        User068(username068 = "FaizUser072", password068 = "123456")
+                    ).toInt()
+                }
+
+                sessionManager072.saveUserId048(userId072)
+
+                withContext(Dispatchers.Main) {
+                    openDashboard072()
+                }
             }
+        } else {
+            openDashboard072()
         }
     }
-}
 
-@PreviewScreenSizes
-@Composable
-fun TelutaskApp() {
-    var currentDestination by rememberSaveable { mutableStateOf(AppDestinations.HOME) }
-
-    NavigationSuiteScaffold(
-        navigationSuiteItems = {
-            AppDestinations.entries.forEach {
-                item(
-                    icon = {
-                        Icon(
-                            painterResource(it.icon),
-                            contentDescription = it.label
-                        )
-                    },
-                    label = { Text(it.label) },
-                    selected = it == currentDestination,
-                    onClick = { currentDestination = it }
-                )
-            }
-        }
-    ) {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-            Greeting(
-                name = "Android",
-                modifier = Modifier.padding(innerPadding)
-            )
-        }
-    }
-}
-
-enum class AppDestinations(
-    val label: String,
-    val icon: Int,
-) {
-    HOME("Home", R.drawable.ic_home),
-    FAVORITES("Favorites", R.drawable.ic_favorite),
-    PROFILE("Profile", R.drawable.ic_account_box),
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    TelutaskTheme {
-        Greeting("Android")
+    private fun openDashboard072() {
+        val intent072 = Intent(this, DashboardActivity072::class.java)
+        startActivity(intent072)
+        finish()
     }
 }

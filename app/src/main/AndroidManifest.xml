@@ -24,6 +24,11 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".dashboard.DashboardActivity072"
+            android:exported="false"
+            android:label="Dashboard"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
             android:name=".task.AddTaskActivity075"
             android:exported="false"
             android:label="Tambah Task" />

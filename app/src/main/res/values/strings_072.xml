@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dashboard_title072">TelUTask Dashboard</string>
+    <string name="logout072">Logout</string>
+    <string name="add_task072">Tambah Tugas</string>
+    <string name="sort_priority072">Sortir Prioritas</string>
+    <string name="sort_priority_active072">Sortir: High → Low ✓</string>
+    <string name="empty_title072">Belum ada tugas</string>
+    <string name="empty_subtitle072">Tekan tombol (+) di kanan bawah untuk membuat tugas baru.</string>
+    <string name="deadline_prefix072">Deadline: </string>
+</resources>
