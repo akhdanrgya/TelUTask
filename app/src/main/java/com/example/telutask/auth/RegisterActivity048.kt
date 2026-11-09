@@ -106,7 +106,16 @@ class RegisterActivity048 : AppCompatActivity() {
                 password068 = password048
             )
 
-            val newUserId048 = userDao048.insertUser068(newUser048).toInt()
+            val newUserId048 = try {
+                userDao048.insertUser068(newUser048).toInt()
+            } catch (error069: kotlinx.coroutines.CancellationException) {
+                throw error069
+            } catch (error069: Exception) {
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(this@RegisterActivity048, "Gagal mendaftar. Username mungkin sudah digunakan.", Toast.LENGTH_LONG).show()
+                }
+                return@launch
+            }
             sessionManager048.saveUserId048(newUserId048)
 
             withContext(Dispatchers.Main) {

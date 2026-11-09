@@ -1,0 +1,14 @@
+
+com.example.telutask.Auth048Test:.......
+com.example.telutask.Dashboard072Test:.
+com.example.telutask.DeleteTask069Test:...
+com.example.telutask.ExampleInstrumentedTest:.
+com.example.telutask.Finishing069Test:...
+com.example.telutask.TaskOwnership077Test:.
+com.example.telutask.TeluTaskDatabase068Test:...
+
+Time: 66.484
+
+OK (19 tests)
+
+

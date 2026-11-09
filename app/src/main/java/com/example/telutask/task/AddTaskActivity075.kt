@@ -1,8 +1,12 @@
 package com.example.telutask.task
 
-import android.R
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.content.Intent
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import kotlinx.coroutines.CancellationException
+import com.example.telutask.auth.LoginActivity048
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,6 +28,8 @@ class AddTaskActivity075 : AppCompatActivity() {
     private lateinit var sessionManager075: SessionManager048
     private lateinit var database075: TeluTaskDatabase068
 
+    private var saving069 = false
+    private var owner069: Int? = null
     private var selectedDeadlineEpoch075: Long? = null
     private val prioritasOptions075 = arrayOf("High", "Medium", "Low")
 
@@ -35,17 +41,41 @@ class AddTaskActivity075 : AppCompatActivity() {
         sessionManager075 = SessionManager048(this)
         database075 = TeluTaskDatabase068.getInstance068(this)
 
+        owner069 = savedInstanceState075?.getInt("owner069") ?: sessionManager075.getUserId048()
+        ViewCompat.setOnApplyWindowInsetsListener(binding075.root) { view069, insets069 ->
+            val bars069 = insets069.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime())
+            view069.setPadding(bars069.left, bars069.top, bars069.right, bars069.bottom)
+            insets069
+        }
+        selectedDeadlineEpoch075 = savedInstanceState075?.getLong("deadline069")?.takeIf { value069 -> value069 > 0 }
+        selectedDeadlineEpoch075?.let { deadline069 -> binding075.tvSelectedDeadline075.text = formatDate075(deadline069) }
         setupSpinner075()
         setupListeners075()
+    }
+
+    override fun onSaveInstanceState(outState069: Bundle) {
+        outState069.putLong("deadline069", selectedDeadlineEpoch075 ?: 0)
+        outState069.putInt("owner069", owner069 ?: -1)
+        super.onSaveInstanceState(outState069)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (owner069 == null || owner069 != sessionManager075.getUserId048()) {
+            startActivity(Intent(this, LoginActivity048::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            })
+            finish()
+        }
     }
 
     private fun setupSpinner075() {
         val adapter075 = ArrayAdapter(
             this,
-            R.layout.simple_spinner_item,
+            android.R.layout.simple_spinner_item,
             prioritasOptions075
         )
-        adapter075.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+        adapter075.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding075.spinnerPrioritas075.adapter = adapter075
     }
 
@@ -92,7 +122,7 @@ class AddTaskActivity075 : AppCompatActivity() {
                 val epoch075 = pickedCalendar075.timeInMillis
                 selectedDeadlineEpoch075 = epoch075
                 binding075.tvSelectedDeadline075.text = formatDate075(epoch075)
-                binding075.tvSelectedDeadline075.setTextColor(getColor(R.color.black))
+                binding075.tvSelectedDeadline075.setTextColor(getColor(com.example.telutask.R.color.dark_text_069))
             },
             year075,
             month075,
@@ -126,8 +156,9 @@ class AddTaskActivity075 : AppCompatActivity() {
     }
 
     private fun saveTask075() {
+        if (saving069) return
         val userId075 = sessionManager075.getUserId048()
-        if (userId075 == null) {
+        if (userId075 == null || userId075 != owner069) {
             Toast.makeText(this, "Sesi pengguna tidak valid. Silakan login kembali.", Toast.LENGTH_SHORT).show()
             finish()
             return
@@ -145,8 +176,21 @@ class AddTaskActivity075 : AppCompatActivity() {
             isDone068 = false
         )
 
+        saving069 = true
+        binding075.btnSimpan075.isEnabled = false
         lifecycleScope.launch(Dispatchers.IO) {
-            database075.taskDao068().insertTask068(newTask075)
+            try {
+                database075.taskDao068().insertTask068(newTask075)
+            } catch (error069: CancellationException) {
+                throw error069
+            } catch (error069: Exception) {
+                withContext(Dispatchers.Main) {
+                    saving069 = false
+                    binding075.btnSimpan075.isEnabled = true
+                    Toast.makeText(this@AddTaskActivity075, "Gagal menyimpan tugas. Silakan coba lagi.", Toast.LENGTH_LONG).show()
+                }
+                return@launch
+            }
             withContext(Dispatchers.Main) {
                 Toast.makeText(this@AddTaskActivity075, "Tugas berhasil ditambahkan", Toast.LENGTH_SHORT).show()
                 setResult(RESULT_OK)

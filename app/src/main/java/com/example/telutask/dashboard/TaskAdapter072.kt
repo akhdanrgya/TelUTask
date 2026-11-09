@@ -42,16 +42,16 @@ class TaskAdapter072(
             tvPrioritas072.text = task072.prioritas068
             when (task072.prioritas068) {
                 "High" -> {
-                    tvPrioritas072.setTextColor(root.context.getColor(android.R.color.holo_red_dark))
+                    tvPrioritas072.setTextColor(root.context.getColor(R.color.priority_high_069))
                 }
                 "Medium" -> {
-                    tvPrioritas072.setTextColor(root.context.getColor(android.R.color.holo_orange_dark))
+                    tvPrioritas072.setTextColor(root.context.getColor(R.color.priority_medium_069))
                 }
                 "Low" -> {
-                    tvPrioritas072.setTextColor(root.context.getColor(android.R.color.holo_green_dark))
+                    tvPrioritas072.setTextColor(root.context.getColor(R.color.priority_low_069))
                 }
                 else -> {
-                    tvPrioritas072.setTextColor(root.context.getColor(android.R.color.darker_gray))
+                    tvPrioritas072.setTextColor(root.context.getColor(R.color.gray_text_069))
                 }
             }
 
@@ -63,6 +63,7 @@ class TaskAdapter072(
 
             cbIsDone072.setOnCheckedChangeListener(null)
             cbIsDone072.isChecked = task072.isDone068
+            cbIsDone072.contentDescription = task072.namaTugas068
             cbIsDone072.setOnCheckedChangeListener { _, isChecked072 ->
                 onDoneChanged072(task072, isChecked072)
             }

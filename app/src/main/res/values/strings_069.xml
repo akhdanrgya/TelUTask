@@ -1,10 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="delete_title_069">Konfirmasi Hapus</string>
-    <string name="delete_message_069">Apakah Anda yakin ingin menghapus tugas ini? Tugas yang dihapus tidak dapat dikembalikan.</string>
-    <string name="delete_confirm_069">Hapus</string>
-    <string name="delete_cancel_069">Batal</string>
-    <string name="delete_success_069">Tugas berhasil dihapus.</string>
-    <string name="delete_failed_069">Gagal menghapus tugas atau tugas tidak ditemukan.</string>
-    <string name="session_invalid_069">Sesi tidak valid atau telah berakhir.</string>
+  <string name="delete_title_069">Konfirmasi Hapus</string>
+  <string name="delete_message_069">Apakah Anda yakin ingin menghapus tugas ini? Tugas yang dihapus tidak dapat dikembalikan.</string>
+  <string name="delete_confirm_069">Hapus</string>
+  <string name="delete_cancel_069">Batal</string>
+  <string name="delete_success_069">Tugas berhasil dihapus.</string>
+  <string name="delete_failed_069">Gagal menghapus tugas atau tugas tidak ditemukan.</string>
+  <string name="session_invalid_069">Sesi tidak valid atau telah berakhir.</string>
+  <string name="ui_copy_1_069">TeluTask</string>
+  <string name="ui_copy_2_069">Masuk ke akun Anda untuk mengelola tugas</string>
+  <string name="ui_copy_3_069">Username</string>
+  <string name="ui_copy_4_069">Password</string>
+  <string name="ui_copy_5_069">Login</string>
+  <string name="ui_copy_6_069">Belum punya akun? Daftar</string>
+  <string name="ui_copy_7_069">Buat Akun Baru</string>
+  <string name="ui_copy_8_069">Daftar untuk mulai mencatat dan mengorganisir tugas Anda</string>
+  <string name="ui_copy_9_069">Username</string>
+  <string name="ui_copy_10_069">Password (min 6 karakter)</string>
+  <string name="ui_copy_11_069">Konfirmasi Password</string>
+  <string name="ui_copy_12_069">Daftar</string>
+  <string name="ui_copy_13_069">Sudah punya akun? Login</string>
+  <string name="ui_copy_14_069">Tambah Tugas Baru</string>
+  <string name="ui_copy_15_069">Isi detail tugas yang ingin ditambahkan</string>
+  <string name="ui_copy_16_069">Nama Tugas</string>
+  <string name="ui_copy_17_069">Prioritas</string>
+  <string name="ui_copy_18_069">Deadline</string>
+  <string name="ui_copy_19_069">Pilih Tanggal Deadline</string>
+  <string name="ui_copy_20_069">Deadline belum dipilih</string>
+  <string name="ui_copy_21_069">Simpan Tugas</string>
+  <string name="ui_copy_22_069">Batal</string>
 </resources>

@@ -42,6 +42,13 @@ class DashboardActivity072 : AppCompatActivity() {
 
         setupRecyclerView072()
         setupListeners072()
+        isSortedByPriority072 = savedInstanceState072?.getBoolean("sort069") ?: false
+        updateSortButtonUI072()
+    }
+
+    override fun onSaveInstanceState(outState069: Bundle) {
+        outState069.putBoolean("sort069", isSortedByPriority072)
+        super.onSaveInstanceState(outState069)
     }
 
     override fun onResume() {
@@ -126,6 +133,7 @@ class DashboardActivity072 : AppCompatActivity() {
                 database072.taskDao068().getTasksByUser068(userId072)
             }
             withContext(Dispatchers.Main) {
+                if (sessionManager072.getUserId048() != userId072 || isFinishing) return@withContext
                 taskList072.clear()
                 taskList072.addAll(tasksFromDb072)
                 adapter072.updateTasks072(taskList072)

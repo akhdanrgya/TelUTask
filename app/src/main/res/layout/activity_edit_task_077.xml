@@ -1,2 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:padding="24dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><TextView android:id="@+id/tvTitle077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="28sp" android:text="@string/edit_title077"/><Button android:id="@+id/btnCancel077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/cancel077"/><Button android:id="@+id/btnRetry077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/retry077"/><LinearLayout android:id="@+id/form077" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="invisible"><TextView android:id="@+id/labelName077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/name_label077"/><EditText android:id="@+id/etName077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:inputType="textCapSentences|textMultiLine" android:gravity="top" android:hint="@string/name_label077" android:saveEnabled="false"/><TextView android:id="@+id/labelPriority077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/priority_label077"/><Spinner android:id="@+id/spinnerPriority077" android:layout_width="match_parent" android:layout_height="48dp" android:saveEnabled="false"/><TextView android:id="@+id/labelDeadline077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/deadline_label077"/><Button android:id="@+id/btnDeadline077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/choose_date077"/><Button android:id="@+id/btnSave077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/save077"/></LinearLayout></LinearLayout></ScrollView>
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="24dp"
+    android:background="@color/background_069">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+            android:textColor="@color/dark_text_069"
+        android:id="@+id/tvTitle077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="28sp"
+        android:text="@string/edit_title077"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnCancel077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/cancel077"
+        android:layout_marginTop="12dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRetry077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/retry077"
+        android:layout_marginTop="12dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+    <LinearLayout
+        android:id="@+id/form077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible">
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelName077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/name_label077"
+           />
+      <EditText
+          android:id="@+id/etName077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="48dp"
+          android:inputType="textCapSentences|textMultiLine"
+          android:gravity="top"
+          android:hint="@string/name_label077"
+          android:saveEnabled="false" />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelPriority077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/priority_label077"
+           />
+      <Spinner
+          android:id="@+id/spinnerPriority077"
+                android:background="@drawable/spinner_069"
+          android:layout_width="match_parent"
+          android:layout_height="48dp"
+          android:saveEnabled="false" />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelDeadline077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/deadline_label077"
+           />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnDeadline077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="48dp"
+          android:text="@string/choose_date077"
+          android:layout_marginTop="12dp"
+          style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnSave077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="48dp"
+          android:text="@string/save077"
+          android:layout_marginTop="12dp" />
+    </LinearLayout>
+  </LinearLayout>
+</ScrollView>

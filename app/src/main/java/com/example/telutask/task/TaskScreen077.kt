@@ -11,7 +11,7 @@ import com.example.telutask.auth.SessionManager048
 import com.example.telutask.data.database.TeluTaskDatabase068
 
 /** Shared session guard; the owner is never read from Intent extras. */
-abstract class TaskScreen077 : ComponentActivity() {
+abstract class TaskScreen077 : androidx.appcompat.app.AppCompatActivity() {
     protected val session077 by lazy { SessionManager048(this) }
     protected val dao077 by lazy { TeluTaskDatabase068.getInstance068(this).taskDao068() }
     protected var ownerId077: Int? = null

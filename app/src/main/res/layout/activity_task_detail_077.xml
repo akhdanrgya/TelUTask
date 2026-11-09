@@ -1,2 +1,135 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true" android:padding="24dp"><LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"><TextView android:id="@+id/tvTitle077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="28sp" android:text="@string/detail_title077"/><Button android:id="@+id/btnBack077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/back077"/><Button android:id="@+id/btnRetry077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/retry077"/><LinearLayout android:id="@+id/taskContent077" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:visibility="invisible"><TextView android:id="@+id/labelName077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/name_label077"/><TextView android:id="@+id/tvName077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="20sp"/><TextView android:id="@+id/labelPriority077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/priority_label077"/><TextView android:id="@+id/tvPriority077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="20sp"/><TextView android:id="@+id/labelDeadline077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/deadline_label077"/><TextView android:id="@+id/tvDeadline077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="20sp"/><TextView android:id="@+id/labelStatus077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/status_label077"/><TextView android:id="@+id/tvStatus077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="20sp"/><Button android:id="@+id/btnEdit077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/edit077"/><Button android:id="@+id/btnDelete077" android:layout_width="match_parent" android:layout_height="wrap_content" android:minHeight="48dp" android:text="@string/delete077"/><TextView android:id="@+id/tvDeleteIntegration077" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="16sp" android:text="@string/delete_unavailable077"/></LinearLayout></LinearLayout></ScrollView>
+<?xml version='1.0' encoding='utf-8'?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:padding="24dp"
+    android:background="@color/background_069">
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <TextView
+            android:textColor="@color/dark_text_069"
+        android:id="@+id/tvTitle077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:textSize="28sp"
+        android:text="@string/detail_title077"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBack077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/back077"
+        android:layout_marginTop="12dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRetry077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:text="@string/retry077"
+        android:layout_marginTop="12dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton" />
+    <LinearLayout
+        android:id="@+id/taskContent077"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible">
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelName077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/name_label077"
+           />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/tvName077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:textSize="24sp"
+          android:textStyle="bold" />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelPriority077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/priority_label077"
+           />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/tvPriority077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:textSize="20sp" />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelDeadline077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/deadline_label077"
+           />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/tvDeadline077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:textSize="20sp" />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/labelStatus077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="24dp"
+          android:textSize="14sp"
+          android:text="@string/status_label077"
+           />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/tvStatus077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:textSize="20sp" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnEdit077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="48dp"
+          android:text="@string/edit077"
+          android:layout_marginTop="12dp" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btnDelete077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:minHeight="48dp"
+          android:text="@string/delete077"
+          android:layout_marginTop="12dp"
+          style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+      <TextView
+            android:textColor="@color/dark_text_069"
+          android:id="@+id/tvDeleteIntegration077"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="12dp"
+          android:textSize="16sp"
+          android:text="@string/delete_unavailable077" />
+    </LinearLayout>
+  </LinearLayout>
+</ScrollView>
