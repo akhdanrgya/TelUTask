@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="delete_title_069">Konfirmasi Hapus</string>
+    <string name="delete_message_069">Apakah Anda yakin ingin menghapus tugas ini? Tugas yang dihapus tidak dapat dikembalikan.</string>
+    <string name="delete_confirm_069">Hapus</string>
+    <string name="delete_cancel_069">Batal</string>
+    <string name="delete_success_069">Tugas berhasil dihapus.</string>
+    <string name="delete_failed_069">Gagal menghapus tugas atau tugas tidak ditemukan.</string>
+    <string name="session_invalid_069">Sesi tidak valid atau telah berakhir.</string>
+</resources>
