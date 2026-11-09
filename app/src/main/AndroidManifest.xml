@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
+        android:name=".TeluTaskApplication069"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -12,17 +13,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Telutask">
         <activity
-            android:name=".MainActivity"
+            android:name=".auth.LauncherActivity048"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Telutask"
-            android:windowSoftInputMode="adjustResize">
+            android:theme="@style/Theme.Telutask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".auth.LoginActivity048"
+            android:exported="false"
+            android:label="Login"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".auth.RegisterActivity048"
+            android:exported="false"
+            android:label="Register"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.Telutask" />
+        <activity
+            android:name=".dashboard.DashboardActivity072"
+            android:exported="false"
+            android:label="Dashboard"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".task.AddTaskActivity075"
+            android:exported="false"
+            android:label="Tambah Task" />
+        <activity android:name=".task.TaskDetailActivity077" android:exported="false" />
+        <activity android:name=".task.EditTaskActivity077" android:exported="false" android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

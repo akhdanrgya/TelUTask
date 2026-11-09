@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="detail_title077">Detail Tugas</string>
+    <string name="edit_title077">Edit Tugas</string>
+    <string name="name_label077">Nama tugas</string>
+    <string name="priority_label077">Prioritas</string>
+    <string name="deadline_label077">Deadline</string>
+    <string name="status_label077">Status</string>
+    <string name="done077">Selesai</string>
+    <string name="pending077">Belum selesai</string>
+    <string name="edit077">Edit tugas</string>
+    <string name="delete077">Hapus tugas</string>
+    <string name="back077">Kembali</string>
+    <string name="retry077">Coba lagi</string>
+    <string name="cancel077">Batal</string>
+    <string name="save077">Simpan perubahan</string>
+    <string name="choose_date077">Pilih tanggal</string>
+    <string name="delete_unavailable077">Hapus tugas belum tersedia.</string>
+</resources>
